@@ -17,7 +17,7 @@ Tests are located in locustfile.py
 
 Make sure you are in root folder of project, execute in terminal: `locust`
 
-then open http://localhost:8089/ in browser, add http://localhost:8000 as url
+then open http://localhost:8089/ in browser, add http://localhost:8000 as host url.
 
 
 ## Docu
