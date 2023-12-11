@@ -10,8 +10,10 @@ PyCharm
 
 ## Setup
 - Clone repo.
-- Click on interpreter info (usually) displayed in bottom right corner of IDE.
+- In IDE click on interpreter info (usually) displayed in bottom right corner
 - Add New Interpreter > Add Local Interpreter... > Virtualenv Environment: New > OK
+- Activate virtual environment by calling the `activate` script. Windows: `.venv/Scripts/activate`
+- In Powershell there should appear a `(.venv)` prefix now
 - Then...
 ```
 pip install -r requirements.txt
