@@ -1,2 +1,5 @@
-locust
-termcolor
+# Performance testing framework
+locust>=2.0.0
+
+# Terminal output coloring for better readability
+termcolor>=2.0.0
