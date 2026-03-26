@@ -1,4 +1,4 @@
-# locust-python-example
+# Locust Python Example
 A sample implementation of Locust performance testing in Python.
 
 ## Application under test
