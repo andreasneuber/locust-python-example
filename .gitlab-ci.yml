@@ -1,0 +1,48 @@
+image: python:3.11
+
+stages:
+  - test
+  - performance
+
+variables:
+  # Configure the application host to test against
+  TEST_HOST: "http://localhost:8000"
+  # Performance test parameters
+  LOCUST_USERS: "100"
+  LOCUST_SPAWN_RATE: "5"
+  LOCUST_RUN_TIME: "60s"
+
+before_script:
+  - python --version
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
+# Validate Locust configuration
+validate:
+  stage: test
+  script:
+    - locust -V
+    - python -m py_compile locustfile.py
+
+# Run performance tests
+performance_test:
+  stage: performance
+  script:
+    - |
+      locust -f locustfile.py \
+        --headless \
+        --host ${TEST_HOST} \
+        --users ${LOCUST_USERS} \
+        --spawn-rate ${LOCUST_SPAWN_RATE} \
+        --run-time ${LOCUST_RUN_TIME} \
+        --html report.html \
+        --csv results
+  artifacts:
+    paths:
+      - report.html
+      - results*.csv
+    expire_in: 30 days
+    when: always
+  only:
+    - main
+    - merge_requests
