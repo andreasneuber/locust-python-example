@@ -3,3 +3,6 @@ locust>=2.0.0
 
 # Terminal output coloring for better readability
 termcolor>=2.0.0
+
+# Generate realistic test data
+Faker>=18.0.0
