@@ -6,7 +6,7 @@ stages:
 
 variables:
   # Configure the application host to test against
-  TEST_HOST: "http://localhost:8000"
+  TEST_HOST: "http://localhost:5000"
   # Performance test parameters
   LOCUST_USERS: "100"
   LOCUST_SPAWN_RATE: "5"
